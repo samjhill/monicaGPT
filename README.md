@@ -13,3 +13,17 @@ This script runs the call log content against OpenAI, asking for suggestions and
 
 Other examples
 ![gpt-response](./images/gpt-response-mom.png)
+
+
+
+Setup
+====
+
+configue the `.env` file with your API keys
+
+
+
+Run
+====
+
+python3 main.py
