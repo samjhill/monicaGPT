@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from monicaPython.monica import activities
-from helpers.gpt import get_conversation_suggestions
+from helpers.gpt import get_activity_suggestions
 
 load_dotenv()
 
@@ -11,12 +11,11 @@ GPT_RESPONSE_MARKER = "RESPONSE FROM GPT:"
 
 def get_activities():
     activity = activities.Activities(MONICA_ACCESS_TOKEN)
-    calls_list = call.list_calls()
-    calls_data = calls_list["data"]
-    return calls_data
+    activities_list = activity.list_activities()
+    return activities_list["data"]
 
 
-def add_gpt_response_to_call(content, response, contact_id, called_at):
+def add_task_to_contact(content, response, contact_id, called_at):
     print("adding gpt response to contact")
     call = calls.Calls(MONICA_ACCESS_TOKEN)
 
@@ -24,22 +23,21 @@ def add_gpt_response_to_call(content, response, contact_id, called_at):
     return call.update_call(updated_call_log, contact_id, called_at)
 
 
-def manage_calls():
-    calls_data = get_calls()
+def manage_activities():
+    activities_data = get_activities()
 
-    for index, call in enumerate(calls_data):
-        call_content = call["content"]
+    for index, activity in enumerate(activities_data):
+        activity_content = activity["description"]
 
-        if GPT_RESPONSE_MARKER in call_content:
-            print("skipping this call, as it already has a response")
-            continue
+        # if GPT_RESPONSE_MARKER in activity:
+        #     print("skipping this call, as it already has a response")
+        #     continue
 
-        contact_id = call["id"]
-        called_at = call["called_at"]
+        gpt_response = get_activity_suggestions(activity_content)
 
-        gpt_response = get_conversation_suggestions(call_content)
-
-        monica_response = add_gpt_response_to_call(call_content, gpt_response, contact_id, called_at)
+        attendees = activity["attendees"]
+        for attendee in attendees:
+            monica_response = add_gpt_response_to_call(call_content, gpt_response, contact_id, called_at)
 
         print(f"added GPT response to {contact_id}. {index + 1 / len(calls_data)}%")
     
