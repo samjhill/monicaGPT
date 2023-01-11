@@ -7,7 +7,7 @@ load_dotenv()
 
 MONICA_ACCESS_TOKEN = os.getenv('monica_access_token')
 
-GPT_RESPONSE_MARKER = "\n RESPONSE FROM GPT: \n"
+GPT_RESPONSE_MARKER = "\n \n RESPONSE FROM GPT: \n"
 
 def get_calls():
     call = calls.Calls(MONICA_ACCESS_TOKEN)

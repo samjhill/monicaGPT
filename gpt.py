@@ -10,7 +10,7 @@ load_dotenv()
 openai.api_key = os.getenv('openai_access_token')
 
 def get_conversation_suggestions(conversation_content):
-    intro = f"The following is a conversation I had with my friend. Please suggest a few follow-up questions: "
+    intro = f"The following is a conversation I had with my friend. Please suggest a few follow-up questions and topics of conversation: "
     prompt = intro + conversation_content
 
     print(f"prompt: {prompt}")
