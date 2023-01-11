@@ -1,4 +1,4 @@
-[Monica](https://github.com/monicahq/monica) is a really neat tool that allows you to manage your personal relationships better by logging calls, birthdays, activities, and other imformation.
+[Monica](https://github.com/monicahq/monica) is a really neat tool that allows you to manage your personal relationships better by logging calls, birthdays, activities, and other information.
 
 This script adds OpenAI suggestions to your Monica UI to help you ask good questions, suggest fun activities, and deepen your relationships even further.
 
