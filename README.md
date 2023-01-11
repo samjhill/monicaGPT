@@ -28,4 +28,6 @@ configue the `.env` file with your API keys
 Run
 ====
 
-python3 main.py
+`python3 main.py`
+
+todo: check if there's an on-save hook for calls and run this automatically
