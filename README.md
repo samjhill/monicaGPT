@@ -1,4 +1,6 @@
-Adds OpenAI suggestions to your [Monica PRM](https://github.com/monicahq/monica)
+[Monica](https://github.com/monicahq/monica) is a really neat tool that allows you to manage your personal relationships better by logging calls, birthdays, and other important imformation.
+
+This script adds OpenAI suggestions to your Monica UI to help you ask good questions and deepen your relationships even further.
 
 
 Add a call:
