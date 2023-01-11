@@ -9,8 +9,8 @@ MONICA_ACCESS_TOKEN = os.getenv('monica_access_token')
 
 GPT_RESPONSE_MARKER = "RESPONSE FROM GPT:"
 
-def get_calls():
-    call = calls.Calls(MONICA_ACCESS_TOKEN)
+def get_activities():
+    activity = activities.Activities(MONICA_ACCESS_TOKEN)
     calls_list = call.list_calls()
     calls_data = calls_list["data"]
     return calls_data
