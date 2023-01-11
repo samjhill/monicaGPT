@@ -5,7 +5,8 @@ This script adds OpenAI suggestions to your Monica UI to help you ask good quest
 Activities
 ====
 Add an activity:
-![activity])(./images/activity.png)
+
+![activity](./images/activity.png)
 
 The script asks OpenAI for similiar activities, and then adds them as a task for you:
 
