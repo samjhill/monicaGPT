@@ -1,1 +1,3 @@
 .env
+__pycache__
+helpers/__pycache__
