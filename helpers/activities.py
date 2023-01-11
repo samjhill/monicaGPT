@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from monicaPython.monica import activities
+from monicaPython.monica import activities, tasks
 from helpers.gpt import get_activity_suggestions
 
 load_dotenv()
@@ -15,12 +15,14 @@ def get_activities():
     return activities_list["data"]
 
 
-def add_task_to_contact(content, response, contact_id, called_at):
-    print("adding gpt response to contact")
-    call = calls.Calls(MONICA_ACCESS_TOKEN)
+def add_task_to_contact(response, contact_id):
+    print("adding task to contact")
+    task = tasks.Task(MONICA_ACCESS_TOKEN)
 
-    updated_call_log = content + GPT_RESPONSE_MARKER + response
-    return call.update_call(updated_call_log, contact_id, called_at)
+    title = "Invite this friend to one of these activities"
+    description = response
+
+    return task.create_task(title, description, contact_id)
 
 
 def manage_activities():
@@ -35,10 +37,11 @@ def manage_activities():
 
         gpt_response = get_activity_suggestions(activity_content)
 
-        attendees = activity["attendees"]
+        attendees = activity["attendees"]["contacts"]
         for attendee in attendees:
-            monica_response = add_gpt_response_to_call(call_content, gpt_response, contact_id, called_at)
+            contact_id = attendee["id"]
+            monica_response = add_task_to_contact(gpt_response, contact_id)
 
-        print(f"added GPT response to {contact_id}. {index + 1 / len(calls_data)}%")
+        print(f"added task to {contact_id}. {index + 1 / len(activities_data)}%")
     
-    print("finished adding responses to calls")
+    print("finished adding activity suggestions")
