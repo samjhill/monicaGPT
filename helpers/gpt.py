@@ -37,7 +37,7 @@ def get_conversation_suggestions(conversation_content):
 
 
 def get_activity_suggestions(activity_content):
-    intro = f"The following is an activity I did with my friend. Please suggest a few other similar activies we may like to do together: "
+    intro = f"The following is an activity I did with my friend. Please suggest three other similar activies we may like to do together: "
     prompt = intro + activity_content
 
     print(f"prompt: {prompt}")

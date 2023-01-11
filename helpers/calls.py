@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from monicaPython.monica import activities
+from monicaPython.monica import calls
 from helpers.gpt import get_conversation_suggestions
 
 load_dotenv()

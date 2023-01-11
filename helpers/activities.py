@@ -17,19 +17,20 @@ def get_activities():
 
 def add_task_to_contact(response, contact_id):
     print("adding task to contact")
-    task = tasks.Task(MONICA_ACCESS_TOKEN)
+    task = tasks.Tasks(MONICA_ACCESS_TOKEN)
 
-    title = "Invite this friend to one of these activities"
-    description = response
+    # remove leading comma
+    task_suggestions = response.replace(",", "", 1)
+    title = f"Invite this friend to one of these activities: {task_suggestions}"
 
-    return task.create_task(title, description, contact_id)
+    return task.add_task(title, "", contact_id)
 
 
 def manage_activities():
     activities_data = get_activities()
 
     for index, activity in enumerate(activities_data):
-        activity_content = activity["description"]
+        activity_content = activity["summary"]
 
         # if GPT_RESPONSE_MARKER in activity:
         #     print("skipping this call, as it already has a response")
@@ -42,6 +43,6 @@ def manage_activities():
             contact_id = attendee["id"]
             monica_response = add_task_to_contact(gpt_response, contact_id)
 
-        print(f"added task to {contact_id}. {index + 1 / len(activities_data)}%")
+        print(f"added task to {contact_id}")
     
     print("finished adding activity suggestions")
