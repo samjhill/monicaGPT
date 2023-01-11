@@ -1,0 +1,3 @@
+[submodule "monicaPython"]
+	path = monicaPython
+	url = https://github.com/samjhill/monicaPython
