@@ -30,17 +30,24 @@ Other examples
 ![gpt-response](./images/gpt-response-mom.png)
 
 
-
-Setup
+Easy mode: run it automatically with Github Actions
 ====
 
-configue the `.env` file with your API keys
+1) Fork this repo
+1) Add your `monica_access_token` and `openai_access_token` as secrets
+1) The Github Action defined in `.github/workflows/run.yml` will run it as often as Github allows (which is around every 5 minutes, but out of my control)
 
 
-
-Run
+Alternatively: run it manually 
 ====
 
-`python3 main.py`
+1) configue the `.env` file with your API keys
+1) `pip install -r requirements.txt`
+1) `python3 main.py`
 
-todo: check if there's an on-save hook for calls and run this automatically
+
+TODO
+====
+
+1) check if there's an on-save hook for calls and run this automatically
+1) set it up on AWS and write a guide for that
