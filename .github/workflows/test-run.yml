@@ -1,0 +1,18 @@
+on: push
+
+jobs:
+  run_monica_gpt:
+    runs-on: ubuntu-latest
+    name: Runs monicaGPT once
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r requirements.txt
+      - name: Run monicaGPT script
+        run: python3 main.py
+        env:
+          monica_access_token: ${{ secrets.MONICA_ACCESS_TOKEN }}
+          openai_access_token: ${{ secrets.OPENAI_ACCESS_TOKEN }}
