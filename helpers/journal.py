@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from monicaPython.monica import journal
 from helpers.gpt import get_journal_entry_suggestions
+from helpers.markdown import line_break
 
 load_dotenv()
 
@@ -20,7 +21,7 @@ def add_gpt_response_to_journal_entry(title, content, response, journal_entry_id
     print("adding gpt response to journal entry")
     journals = journal.Journal(MONICA_ACCESS_TOKEN)
 
-    updated_journal_entry = content + GPT_RESPONSE_MARKER + response
+    updated_journal_entry = content + line_break + GPT_RESPONSE_MARKER + response
     return journals.update_journal_entry(title, updated_journal_entry, journal_entry_id)
 
 
