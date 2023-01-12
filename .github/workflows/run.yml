@@ -8,8 +8,10 @@ jobs:
     name: Runs monicaGPT on a schedule
     steps:
       - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: Run monicaGPT script
-          run: python3 main.py
-          env:
-            monica_access_token: ${{ secrets.MONICA_ACCESS_TOKEN }}
-            openai_access_token: ${{ secrets.OPENAI_ACCESS_TOKEN }}
+        run: python3 main.py
+        env:
+          monica_access_token: ${{ secrets.MONICA_ACCESS_TOKEN }}
+          openai_access_token: ${{ secrets.OPENAI_ACCESS_TOKEN }}
