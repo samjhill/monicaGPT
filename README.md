@@ -6,11 +6,11 @@ Journal Entries
 ====
 
 Add a journal entry:
-![journal-entry](./images/journal-entry)
+![journal-entry](./images/journal-entry.png)
 
 The script has AI act as your therapist and gives you advice and suggestions:
 
-![journal-gpt-response](./images/journal-gpt-response)
+![journal-gpt-response](./images/journal-gpt-response.png)
 
 
 
