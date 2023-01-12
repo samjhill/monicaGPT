@@ -1,6 +1,18 @@
 [Monica](https://github.com/monicahq/monica) is a really neat tool that allows you to manage your personal relationships better by logging calls, birthdays, activities, and other information.
 
-This script adds OpenAI suggestions to your Monica UI to help you ask good questions, suggest fun activities, and deepen your relationships even further.
+This script adds OpenAI suggestions to your Monica UI to help you ask good questions, suggest fun activities, and deepen your relationships even further. It also acts as an AI therapist on your Journal entries.
+
+Journal Entries
+====
+
+Add a journal entry:
+![journal-entry](./images/journal-entry)
+
+The script has AI act as your therapist and gives you advice and suggestions:
+
+![journal-gpt-response](./images/journal-gpt-response)
+
+
 
 Activities
 ====

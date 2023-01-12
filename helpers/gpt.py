@@ -45,3 +45,14 @@ def get_activity_suggestions(activity_content):
     suggestions = get_openai_response(prompt)
 
     return suggestions
+
+
+def get_journal_entry_suggestions(entry_content):
+    intro = f"The following is an journal entry I wrote. Please assume the role of my therapist and give me your thoughts and advice based on what you read: "
+    prompt = intro + entry_content
+
+    print(f"prompt: {prompt}")
+
+    suggestions = get_openai_response(prompt)
+
+    return suggestions
