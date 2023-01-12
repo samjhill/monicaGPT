@@ -7,4 +7,4 @@ from helpers.activities import manage_activities
 
 if __name__ == "__main__":
   manage_calls()
-  manage_activities()
+  # manage_activities()
