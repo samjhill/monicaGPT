@@ -32,7 +32,7 @@ def manage_activities():
     for index, activity in enumerate(activities_data):
         activity_content = activity["summary"]
 
-        if GPT_RESPONSE_MARKER in activity:
+        if GPT_RESPONSE_MARKER in activity_content:
             print("skipping this call, as it already has an activity")
             continue
 
