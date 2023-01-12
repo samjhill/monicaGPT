@@ -8,6 +8,8 @@ jobs:
     name: Runs monicaGPT on a schedule
     steps:
       - uses: actions/checkout@v3
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@master
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
