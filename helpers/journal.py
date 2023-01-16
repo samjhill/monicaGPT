@@ -42,6 +42,6 @@ def manage_journal_entries():
 
         monica_response = add_gpt_response_to_journal_entry(entry_title, journal_content, gpt_response, entry_id)
 
-        print(f"added GPT response to {entry_id}. {index + 1 / len(journals_data)}%")
+        print(f"added GPT response to {entry_id}")
     
     print("finished adding responses to journals")
