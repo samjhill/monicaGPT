@@ -3,7 +3,7 @@ import requests
 import json
 import subprocess
 import openai
-
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,7 +21,7 @@ def get_openai_response(prompt):
         presence_penalty=0.0
     )
     response = response['choices'][0]['text']
-
+    time.sleep(2)
     return response
 
 
