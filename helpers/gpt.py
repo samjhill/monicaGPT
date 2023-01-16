@@ -26,14 +26,21 @@ def get_openai_response(prompt):
 
 
 def get_conversation_suggestions(conversation_content):
-    intro = f"The following is a conversation I had with my friend. Please give me advice on how I should handle each item, and then suggest a few follow-up questions and topics of conversation: "
-    prompt = intro + conversation_content
+    split_content = conversation_content.splitlines()
+    suggestions = []
 
-    print(f"prompt: {prompt}")
+    for line in split_content:
+        if len(line) < 1:
+            continue
 
-    suggestions = get_openai_response(prompt)
+        intro = f"The following is a conversation I had with my friend. Please give me advice about it, and then suggest a few follow-up questions and topics of conversation: "
+        prompt = intro + line
 
-    return suggestions
+        print(f"prompt: {prompt}")
+        
+        suggestions.append(get_openai_response(prompt))
+
+    return "\n".join(suggestions)
 
 
 def get_activity_suggestions(activity_content):
@@ -48,11 +55,19 @@ def get_activity_suggestions(activity_content):
 
 
 def get_journal_entry_suggestions(entry_content):
-    intro = f"The following is an journal entry I wrote. Please assume the role of my therapist and give me your thoughts and advice based on what you read: "
-    prompt = intro + entry_content
+    split_content = entry_content.splitlines()
 
-    print(f"prompt: {prompt}")
+    suggestions = []
 
-    suggestions = get_openai_response(prompt)
+    for line in split_content:
+        if len(line) < 1:
+            continue
 
-    return suggestions
+        intro = f"The following is a journal entry I wrote. Please assume the role of my therapist and give me your thoughts and advice based on what you read: "
+        prompt = intro + line
+
+        print(f"prompt: {prompt}")
+
+        suggestions.append(get_openai_response(prompt))
+
+    return "\n".join(suggestions)
