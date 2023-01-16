@@ -45,6 +45,7 @@ Other examples
 Easy mode: run it automatically with Github Actions
 ====
 
+1) Set [up MonicaGPT](https://www.monicahq.com/) 
 1) Fork this repo
 1) Add your `monica_access_token` and `openai_access_token` as secrets
 1) The Github Action defined in `.github/workflows/run.yml` will run it as often as Github allows (which is around every 5 minutes, but out of my control)
