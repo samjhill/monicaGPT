@@ -63,7 +63,7 @@ def get_journal_entry_suggestions(entry_content):
         if len(line) < 1:
             continue
 
-        intro = f"The following is a journal entry I wrote. Please assume the role of my therapist and give me your thoughts and advice based on what you read: "
+        intro = f"The following is a journal entry I wrote. Please assume the role of my therapist and give me your thoughts, advice, and suggestions based on what you read: "
         prompt = intro + line
 
         print(f"prompt: {prompt}")
